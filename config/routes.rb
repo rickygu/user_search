@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   
   root "users#index"
+  get 'search' => 'users#search'
   resources :users
     
   # The priority is based upon order of creation: first created -> highest priority.

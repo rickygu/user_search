@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     if @q.blank?
       @users = User.paginate(:page => params[:page], :per_page => 12)
     else
-
-      @users = User.where("name ILIKE ? or line1 ILIKE ? or line2 ILIKE ? or city ILIKE ? or state ILIKE ? or zip ILIKE ? or phone ILIKE ?", "%#{@q}%","%#{@q}%","%#{@q}%","%#{@q}%","%#{@q}%","%#{@q}%","%#{@q}%").paginate(:page => params[:page], :per_page => 12)
+      
+      @users = User.search(@q).paginate(:page => params[:page], :per_page => 12)
     end
   end
 

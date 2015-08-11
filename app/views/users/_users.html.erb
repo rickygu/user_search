@@ -1,12 +1,29 @@
-<table class="table table-striped">
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @users.each_with_index do |user, index| %>
+<div class="panel panel-default">
+    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index %>" aria-expanded="true" aria-controls="collapse<%= index %>"><div class="panel-heading" role="tab" id="heading<%= index %>">
+      <h4 class="panel-title">
+          <%= user.name %>
+      </h4>
+    </div>
+    </a>
+    <div id="collapse<%= index %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= index %>">
+      <div class="panel-body">
+        <div class='row'>
+          <div class='col-md-8'>
+            <%= user.line1 %><br>
+            <%= user.line2 %><%= raw("<br>") unless user.line2.blank? %>
+            <%= user.city %><br>
+            <%= user.state %><br>
+            <%= user.zip %>
+          </div>
+          <div class='col-md-4'>
+             <%= user.phone %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+

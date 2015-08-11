@@ -52,3 +52,4 @@ gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
 gem 'will_paginate'
 gem "will_paginate-bootstrap"
+gem 'phony_rails' #normalize phone number to make it easier to search

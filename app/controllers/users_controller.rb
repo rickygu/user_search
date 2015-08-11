@@ -13,10 +13,13 @@ class UsersController < ApplicationController
   end
 
   def search
-    if params[:q].blank?
-      render :nothing => true
+    sleep 1
+    @q = params[:q]
+    if @q.blank?
+      @users = User.paginate(:page => params[:page], :per_page => 15)
     else
-      @users = User.where("name LIKE ? or line1 LIKE ? or line2 LIKE ? or city LIKE ? or state LIKE ? or zip LIKE ? or phone LIKE ?", "%#{params[:q]}%").paginate(:page => params[:page], :per_page => 30)
+
+      @users = User.where("name LIKE ? or line1 LIKE ? or line2 LIKE ? or city LIKE ? or state LIKE ? or zip LIKE ? or phone LIKE ?", "%#{@q}%","%#{@q}%","%#{@q}%","%#{@q}%","%#{@q}%","%#{@q}%","%#{@q}%").paginate(:page => params[:page], :per_page => 15)
     end
     
     #@users = User.paginate(:page => 2, :per_page => 30)

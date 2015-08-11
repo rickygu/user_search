@@ -1,9 +1,9 @@
 <%- model_class = User -%>
   
-  <%= form_tag("/search", method: "get", remote: true) do %>
+  <%= form_tag("/", method: "get", remote: true) do %>
     
     <div class="row">
-      <div class="col-xs-9"><div class="form-group"><%= text_field_tag :q, "" ,class: "form-control" %></div></div>
+      <div class="col-xs-9"><div class="form-group"><%= text_field_tag :q, "#{@q}" ,class: "form-control", placeholder: "Search name, address, or phone numbers" %></div></div>
       <div class="col-xs-3"><%= submit_tag("Search", class: "btn btn-primary btn-block") %></div>
     </div>
     

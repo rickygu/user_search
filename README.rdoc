@@ -1,28 +1,44 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+*Challenge*
+Create a Ruby on Rails application that displays a list of each users’ contact information. Features must include:
+* The ability to search
+* The search feature must be able to search by name, address, or phone
+number
+* The ability to display all information for a single user
+User Interface
+Below is a simple example of what we expect the user interface to look like. This should be a one page web application that can search and display user information in a clean manner.
+￼
+Data Source
+Please use the data in the included JSON file.
+Requirements
+* The application should store all data in a MySQL database
+* If you’d like, you may use the following libraries for CSS & Javascript: jQuery,
+Bootstrap, and Foundation. Feel free to use RubyGems at your discretion, but be
+prepared to justify their use.
+* Solution should be written in Ruby on Rails (3 or 4 is fine)
+* Site must be responsive (must look good on phone, tablet, desktop, etc.)
+* UI Mockups are meant to be used more as a guideline than a final design. Feel
+free to make design improvements.
+* Please host this and send us the URL (google developers or heroku are both fine
+choices)
+Bonus
+Bonus points for:
+keeping security in mind when making your decisions
+test coverage
 
-* Ruby version
+*Solution*
+I deployed the app on heroku free tier so it may take a few seconds for the dyno to wake up the first time you access.
+https://fathomless-earth-3533.herokuapp.com/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Features:
+* Support sqlite3 for local and posgres for production
+* Case insensitive search 
+* Query is sql injection safe
+* Rails build in ajax updating search result and pagination
+* Loading spinner
+* UI design capable of viewing multiple user info (compare to 1 detailed result for the suggested design). 
+* Normalized phone number format for easer search
+* Responsive design with Bootstrap + little bit of custom CSS to make pagination responsive
+* Rspec model unit test for the search method
